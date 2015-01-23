@@ -12,7 +12,7 @@
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("AccesaLogo", "Index", "Home", new { @class = "site-logo" }) Challenge Portal</p>
+                    <p class="site-title">@Html.ActionLink("AccesaLogo", "Index", "Home", null, new { @class = "site-logo" }) Challenge Portal</p>
                 </div>
                 <div class="float-right">
                     <section id="login">
@@ -21,6 +21,7 @@
                     <nav>
                         <ul id="menu">
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Challenge", "Start", "Challenge")</li>
                             <li>@Html.ActionLink("About", "About", "Home")</li>
                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                         </ul>

@@ -50,5 +50,15 @@ namespace AccesaChallengePortal.Repository
         {
             return _context.Set<T>().Where(filter);
         }
+
+        public T Nth(int index)
+        {
+            return _context.Set<T>().OrderBy(x => x.Id).Skip(index - 1).Take(1).FirstOrDefault();
+        }
+
+        public int Count()
+        {
+            return _context.Set<T>().Count();
+        }
     }
 }

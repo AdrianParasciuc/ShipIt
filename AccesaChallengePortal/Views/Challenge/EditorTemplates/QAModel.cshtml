@@ -1,0 +1,24 @@
+﻿@using AccesaChallengePortal.Models
+@model QAModel
+
+<br />
+<div style="border: solid 1px; padding: 10px; background-color: powderblue">
+    @Html.HiddenFor(m => m.QuestionId)
+    @Html.HiddenFor(m => m.RequireFileUpload)
+    @Html.HiddenFor(m => m.Question)
+    <div class="editor-label">
+        <label>
+            @Html.DisplayFor(m => m.Question)
+        </label>
+    </div>
+
+    <div class="editor-field">
+        @Html.TextAreaFor(m => m.Answer, new { style = "width: 99%", rows = 6 })
+        @Html.ValidationMessageFor(m => m.Answer)
+    </div>
+
+    @if (Model.RequireFileUpload)
+    {
+        @Html.EditorFor(model => model.FileData)
+    }
+</div>
