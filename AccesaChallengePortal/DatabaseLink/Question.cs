@@ -12,22 +12,18 @@ namespace AccesaChallengePortal.DatabaseLink
     using System;
     using System.Collections.Generic;
     
-    public partial class User : AccesaChallengePortal.Interfaces.IEntity
+    public partial class Question : AccesaChallengePortal.Interfaces.IEntity
     {
-        public User()
+        public Question()
         {
             this.Responses = new HashSet<Respons>();
-            this.Feedbacks = new HashSet<Feedback>();
         }
     
         public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public bool IsAdmin { get; set; }
+        public string Body { get; set; }
+        public Nullable<int> ChallengeId { get; set; }
     
+        public virtual Challenge Challenge { get; set; }
         public virtual ICollection<Respons> Responses { get; set; }
-        public virtual ICollection<Feedback> Feedbacks { get; set; }
     }
 }

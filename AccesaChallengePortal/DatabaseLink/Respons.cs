@@ -14,16 +14,19 @@ namespace AccesaChallengePortal.DatabaseLink
     
     public partial class Respons : AccesaChallengePortal.Interfaces.IEntity
     {
-        public int Id { get; set; }
-        public string Text { get; set; }
-        public System.DateTime ReviewDate { get; set; }
-        public int UserId { get; set; }
-        public int ChallengeId { get; set; }
-        public Nullable<int> Grade { get; set; }
-        public string Notes { get; set; }
-        public string Reviewer { get; set; }
+        public Respons()
+        {
+            this.Feedbacks = new HashSet<Feedback>();
+        }
     
-        public virtual Challenge Challenge { get; set; }
+        public int Id { get; set; }
+        public string ResponseData { get; set; }
+        public string FilePath { get; set; }
+        public int UserId { get; set; }
+        public int QuestionId { get; set; }
+    
+        public virtual Question Question { get; set; }
         public virtual User User { get; set; }
+        public virtual ICollection<Feedback> Feedbacks { get; set; }
     }
 }

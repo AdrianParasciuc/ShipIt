@@ -5,12 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ddb6094a4b38476aba72a7cbce7cd672" Name="Diagram1">
-        <EntityTypeShape EntityType="ACPDatabaseModel.Challenge" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ACPDatabaseModel.User" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ACPDatabaseModel.Respons" Width="1.5" PointX="5.25" PointY="2.875" />
-        <AssociationConnector Association="ACPDatabaseModel.FK__Responses__Chall__37A5467C" />
-        <AssociationConnector Association="ACPDatabaseModel.FK__Responses__UserI__36B12243" />
-      </Diagram>
+        <EntityTypeShape EntityType="ACPDatabaseModel.Challenge" Width="1.5" PointX="0.5" PointY="1.375" />
+        <EntityTypeShape EntityType="ACPDatabaseModel.Question" Width="1.5" PointX="2.75" PointY="1.25" />
+        <EntityTypeShape EntityType="ACPDatabaseModel.Respons" Width="1.5" PointX="5" PointY="1" />
+        <EntityTypeShape EntityType="ACPDatabaseModel.User" Width="1.5" PointX="5" PointY="4" />
+        <AssociationConnector Association="ACPDatabaseModel.FK__Questions__Chall__3F466844" />
+        <AssociationConnector Association="ACPDatabaseModel.FK__Responses__Quest__4316F928" />
+        <AssociationConnector Association="ACPDatabaseModel.FK__Responses__UserI__4222D4EF" />
+        <EntityTypeShape EntityType="ACPDatabaseModel.Feedback" Width="1.5" PointX="9" PointY="2.625" />
+        <AssociationConnector Association="ACPDatabaseModel.FK__Feedback__Respon__4CA06362" />
+        <AssociationConnector Association="ACPDatabaseModel.FK__Feedback__UserId__4D94879B" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

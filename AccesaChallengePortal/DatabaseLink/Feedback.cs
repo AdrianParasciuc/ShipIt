@@ -12,16 +12,15 @@ namespace AccesaChallengePortal.DatabaseLink
     using System;
     using System.Collections.Generic;
     
-    public partial class Challenge : AccesaChallengePortal.Interfaces.IEntity
+    public partial class Feedback : AccesaChallengePortal.Interfaces.IEntity
     {
-        public Challenge()
-        {
-            this.Questions = new HashSet<Question>();
-        }
-    
         public int Id { get; set; }
-        public string Title { get; set; }
+        public Nullable<int> Grade { get; set; }
+        public string Comment { get; set; }
+        public int ResponseId { get; set; }
+        public int UserId { get; set; }
     
-        public virtual ICollection<Question> Questions { get; set; }
+        public virtual Respons Respons { get; set; }
+        public virtual User User { get; set; }
     }
 }
