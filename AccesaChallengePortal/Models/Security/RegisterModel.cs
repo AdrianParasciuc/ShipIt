@@ -14,6 +14,14 @@ namespace AccesaChallengePortal.Models.Security
         public string Username { get; set; }
 
         [Required]
+        [DisplayName("First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [DisplayName("Last Name")]
+        public string LastName { get; set; }
+
+        [Required]
         [StringLength(100, MinimumLength = 6)]
         [DataType(DataType.Password)]
         public string Password { get; set; }

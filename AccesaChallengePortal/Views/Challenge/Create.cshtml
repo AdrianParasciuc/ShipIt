@@ -1,0 +1,31 @@
+﻿@using AccesaChallengePortal.Models
+@model ChallengeModel
+@{
+    ViewBag.Title = "Create Challenge";
+}
+
+<h2>Create Challenge</h2>
+@using (Html.BeginForm("Create", "Challenge", null, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.ValidationSummary(true)
+    <div>
+        <fieldset>
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Title)
+            </div>
+
+            <div class="editor-field">
+                @Html.EditorFor(m => m.Title)
+                @Html.ValidationMessageFor(m => m.Title)
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="form-group">
+        <br>
+        <input type="submit" class="btn btn-default" value="Create" />
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to Challenges", "Index")
+</div>

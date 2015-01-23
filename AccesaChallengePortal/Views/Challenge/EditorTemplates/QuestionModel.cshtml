@@ -1,0 +1,12 @@
+﻿@using AccesaChallengePortal.Models
+@model QuestionModel
+
+<tr>
+    <td>
+        @Model.Body
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", "Question", new { id = Model.Id }, null)
+        @Html.ActionLink("Delete", "Delete", "Question", new { id = Model.Id }, null)
+    </td>
+</tr>

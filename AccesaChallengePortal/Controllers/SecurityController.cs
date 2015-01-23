@@ -94,6 +94,8 @@ namespace AccesaChallengePortal.Controllers
             {
                 Username = model.Username,
                 Password = model.Password,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
                 IsAdmin = false
             };
             return user;

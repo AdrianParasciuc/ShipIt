@@ -22,6 +22,7 @@ namespace AccesaChallengePortal.DatabaseLink
         public int Id { get; set; }
         public string Body { get; set; }
         public Nullable<int> ChallengeId { get; set; }
+        public Nullable<bool> RequiresFile { get; set; }
     
         public virtual Challenge Challenge { get; set; }
         public virtual ICollection<Respons> Responses { get; set; }
