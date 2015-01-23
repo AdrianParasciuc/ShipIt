@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ddb6094a4b38476aba72a7cbce7cd672" Name="Diagram1">
+        <EntityTypeShape EntityType="ACPDatabaseModel.Challenge" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACPDatabaseModel.User" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACPDatabaseModel.Respons" Width="1.5" PointX="5.25" PointY="2.875" />
+        <AssociationConnector Association="ACPDatabaseModel.FK__Responses__Chall__37A5467C" />
+        <AssociationConnector Association="ACPDatabaseModel.FK__Responses__UserI__36B12243" />
+        <EntityTypeShape EntityType="ACPDatabaseModel.sysdiagram" Width="1.5" PointX="3.375" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
