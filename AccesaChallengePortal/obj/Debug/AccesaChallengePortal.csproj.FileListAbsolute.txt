@@ -156,4 +156,8 @@ D:\Git\shipit\AccesaChallengePortal\bin\zh-Hans\System.Spatial.resources.dll
 D:\Git\shipit\AccesaChallengePortal\bin\zh-Hant\System.Spatial.resources.dll
 D:\Git\shipit\AccesaChallengePortal\obj\Debug\AccesaChallengePortal.dll
 D:\Git\shipit\AccesaChallengePortal\obj\Debug\AccesaChallengePortal.pdb
+<<<<<<< HEAD
 c:\users\adrian.parasciuc\documents\visual studio 2013\Projects\AccesaChallengePortal\AccesaChallengePortal\obj\Debug\AccesaChallengePortal.csprojResolveAssemblyReference.cache
+=======
+D:\Git\shipit\AccesaChallengePortal\obj\Debug\AccesaChallengePortal.csprojResolveAssemblyReference.cache
+>>>>>>> ea7193335c465ce73ae626fdeddd0d5204509b23
