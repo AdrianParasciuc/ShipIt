@@ -4,46 +4,51 @@ using System.Linq;
 using System.Web;
 using AccesaChallengePortal.Interfaces;
 using AccesaChallengePortal.DatabaseLink;
+using System.Linq.Expressions;
 
 namespace AccesaChallengePortal.Repository
 {
-    public class ChallengeRepository : IRepository<Challenge>
+    public class ACPRepository<T> : IRepository<T> where T : class, IEntity
     {
         private readonly ACPDatabaseEntities _context;
 
-        public ChallengeRepository()
+        public ACPRepository()
         {
             _context = new ACPDatabaseEntities();
         }
 
-        public List<Challenge> GetAll()
+        public List<T> GetAll()
         {
-            return _context.Challenges.ToList();
+            return _context.Set<T>().ToList();
         }
 
-        public void Add(Challenge entity)
+        public void Add(T entity)
         {
-            _context.Challenges.Add(entity);
+            _context.Set<T>().Add(entity);
             _context.SaveChanges();
         }
 
-        public void Delete(Challenge entity)
+        public void Delete(T entity)
         {
-            _context.Challenges.Remove(entity);
+            _context.Set<T>().Remove(entity);
             _context.SaveChanges();
         }
 
-        public void Update(Challenge entity)
+        public void Update(T entity)
         {
             _context.Entry(entity).State = System.Data.EntityState.Modified;
             _context.SaveChanges();
         }
 
-        public Challenge FindById(int id)
+        public T FindById(int id)
         {
-            var result = (from r in _context.Challenges where r.Id == id select r).FirstOrDefault();
+            var result = _context.Set<T>().FirstOrDefault(x => x.Id == id);
             return result;
         }
 
+        public IEnumerable<T> Where(Expression<Func<T, bool>> filter = null)
+        {
+            return _context.Set<T>().Where(filter);
+        }
     }
 }

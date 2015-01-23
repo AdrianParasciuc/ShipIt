@@ -12,7 +12,7 @@ namespace AccesaChallengePortal.DatabaseLink
     using System;
     using System.Collections.Generic;
     
-    public partial class Respons
+    public partial class Respons : AccesaChallengePortal.Interfaces.IEntity
     {
         public int Id { get; set; }
         public string Text { get; set; }

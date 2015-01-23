@@ -12,7 +12,7 @@ namespace AccesaChallengePortal.DatabaseLink
     using System;
     using System.Collections.Generic;
     
-    public partial class Challenge
+    public partial class Challenge : AccesaChallengePortal.Interfaces.IEntity
     {
         public Challenge()
         {

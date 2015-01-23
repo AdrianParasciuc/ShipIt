@@ -7,14 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using AccesaChallengePortal.Interfaces;
-
 namespace AccesaChallengePortal.DatabaseLink
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class User : AccesaChallengePortal.Interfaces.IEntity
     {
         public User()
         {

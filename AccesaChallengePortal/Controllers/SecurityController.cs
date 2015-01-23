@@ -12,11 +12,11 @@ namespace AccesaChallengePortal.Controllers
 {
     public class SecurityController : Controller
     {
-        private readonly UserRepository _repo;
+        private readonly ACPRepository<User> _repo;
 
         public SecurityController()
         {
-            _repo = new UserRepository();
+            _repo = new ACPRepository<User>();
         }
 
         [AllowAnonymous]
@@ -32,7 +32,7 @@ namespace AccesaChallengePortal.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = _repo.GetByUsername(model.Username);
+                var user = _repo.Where(x => x.Username == model.Username).FirstOrDefault();
                 if (user != null && user.Password.Equals(model.Password))
                 {
                     SessionRepository.CurrentUser = user;
@@ -55,7 +55,7 @@ namespace AccesaChallengePortal.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = _repo.GetByUsername(model.Username);
+                var user = _repo.Where(x => x.Username == model.Username).FirstOrDefault();
                 if (user == null)
                 {
                     user = ConvertRegisterModelToUser(model);

@@ -214,9 +214,6 @@
     <Compile Include="DatabaseLink\sp_helpdiagrams_Result.cs">
       <DependentUpon>ACPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseLink\sysdiagram.cs">
-      <DependentUpon>ACPModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DatabaseLink\User.cs">
       <DependentUpon>ACPModel.tt</DependentUpon>
     </Compile>
@@ -232,7 +229,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ChallengeRepository.cs" />
     <Compile Include="Repository\SessionRepository.cs" />
-    <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -289,6 +285,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="DatabaseLink\ACPModel.edmx.sql" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <EntityDeploy Include="DatabaseLink\ACPModel.edmx">

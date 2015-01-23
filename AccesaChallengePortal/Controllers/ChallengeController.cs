@@ -10,11 +10,11 @@ namespace AccesaChallengePortal.Controllers
 {
     public class ChallengeController : Controller
     {
-        private readonly ChallengeRepository _repo;
+        private readonly ACPRepository<Challenge> _repo;
 
         public ChallengeController()
         {
-            _repo = new ChallengeRepository();
+            _repo = new ACPRepository<Challenge>();
         }
     }
 }

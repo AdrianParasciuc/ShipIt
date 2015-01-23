@@ -10,7 +10,6 @@
         <EntityTypeShape EntityType="ACPDatabaseModel.Respons" Width="1.5" PointX="5.25" PointY="2.875" />
         <AssociationConnector Association="ACPDatabaseModel.FK__Responses__Chall__37A5467C" />
         <AssociationConnector Association="ACPDatabaseModel.FK__Responses__UserI__36B12243" />
-        <EntityTypeShape EntityType="ACPDatabaseModel.sysdiagram" Width="1.5" PointX="3.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
