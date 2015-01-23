@@ -4,141 +4,141 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ACPDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Challenges">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Feedback">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Grade" Type="int" />
-          <Property Name="Comment" Type="varchar(max)" />
-          <Property Name="ResponseId" Type="int" Nullable="false" />
-          <Property Name="UserId" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Questions">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Body" Type="varchar(max)" Nullable="false" />
-          <Property Name="ChallengeId" Type="int" />
-        </EntityType>
-        <EntityType Name="Responses">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ResponseData" Type="varchar(max)" Nullable="false" />
-          <Property Name="FilePath" Type="varchar" MaxLength="200" />
-          <Property Name="UserId" Type="int" Nullable="false" />
-          <Property Name="QuestionId" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="IsAdmin" Type="bit" Nullable="false" />
-        </EntityType>
-        <Association Name="FK__Feedback__Respon__4CA06362">
-          <End Role="Responses" Type="Self.Responses" Multiplicity="1" />
-          <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Responses">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Feedback">
-              <PropertyRef Name="ResponseId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Feedback__UserId__4D94879B">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Feedback">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Questions__Chall__3F466844">
-          <End Role="Challenges" Type="Self.Challenges" Multiplicity="0..1" />
-          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Challenges">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Questions">
-              <PropertyRef Name="ChallengeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Responses__Quest__4316F928">
-          <End Role="Questions" Type="Self.Questions" Multiplicity="1" />
-          <End Role="Responses" Type="Self.Responses" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Questions">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Responses">
-              <PropertyRef Name="QuestionId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Responses__UserI__4222D4EF">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Responses" Type="Self.Responses" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Responses">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="ACPDatabaseModelStoreContainer">
-          <EntitySet Name="Challenges" EntityType="Self.Challenges" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Responses" EntityType="Self.Responses" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Feedback__Respon__4CA06362" Association="Self.FK__Feedback__Respon__4CA06362">
-            <End Role="Responses" EntitySet="Responses" />
-            <End Role="Feedback" EntitySet="Feedback" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Feedback__UserId__4D94879B" Association="Self.FK__Feedback__UserId__4D94879B">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Feedback" EntitySet="Feedback" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Questions__Chall__3F466844" Association="Self.FK__Questions__Chall__3F466844">
-            <End Role="Challenges" EntitySet="Challenges" />
-            <End Role="Questions" EntitySet="Questions" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Responses__Quest__4316F928" Association="Self.FK__Responses__Quest__4316F928">
-            <End Role="Questions" EntitySet="Questions" />
-            <End Role="Responses" EntitySet="Responses" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Responses__UserI__4222D4EF" Association="Self.FK__Responses__UserI__4222D4EF">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Responses" EntitySet="Responses" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
+    <Schema Namespace="ACPDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ACPDatabaseModelStoreContainer">
+    <EntitySet Name="Challenges" EntityType="ACPDatabaseModel.Store.Challenges" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Questions" EntityType="ACPDatabaseModel.Store.Questions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Responses" EntityType="ACPDatabaseModel.Store.Responses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="ACPDatabaseModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Feedbacks" EntityType="ACPDatabaseModel.Store.Feedbacks" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__Questions__Chall__3F466844" Association="ACPDatabaseModel.Store.FK__Questions__Chall__3F466844">
+      <End Role="Challenge" EntitySet="Challenges" />
+      <End Role="Question" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Responses__Quest__4316F928" Association="ACPDatabaseModel.Store.FK__Responses__Quest__4316F928">
+      <End Role="Question" EntitySet="Questions" />
+      <End Role="Respons" EntitySet="Responses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Responses__UserI__4222D4EF" Association="ACPDatabaseModel.Store.FK__Responses__UserI__4222D4EF">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Respons" EntitySet="Responses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Feedback__Respon__4CA06362" Association="ACPDatabaseModel.Store.FK__Feedback__Respon__4CA06362">
+      <End Role="Respons" EntitySet="Responses" />
+      <End Role="Feedback" EntitySet="Feedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Feedback__UserId__4D94879B" Association="ACPDatabaseModel.Store.FK__Feedback__UserId__4D94879B">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Feedback" EntitySet="Feedbacks" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Challenges">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Questions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Body" Type="varchar(max)" Nullable="false" />
+    <Property Name="ChallengeId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Responses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResponseData" Type="varchar(max)" Nullable="false" />
+    <Property Name="FilePath" Type="varchar" Nullable="true" MaxLength="200" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="QuestionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Username" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="IsAdmin" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Feedbacks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Grade" Type="int" Nullable="true" />
+    <Property Name="Comment" Type="varchar(max)" Nullable="true" />
+    <Property Name="ResponseId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Questions__Chall__3F466844">
+    <End Role="Challenge" Type="ACPDatabaseModel.Store.Challenges" Multiplicity="0..1" />
+    <End Role="Question" Type="ACPDatabaseModel.Store.Questions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Challenge">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="ChallengeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Responses__Quest__4316F928">
+    <End Role="Question" Type="ACPDatabaseModel.Store.Questions" Multiplicity="1" />
+    <End Role="Respons" Type="ACPDatabaseModel.Store.Responses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Respons">
+        <PropertyRef Name="QuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Responses__UserI__4222D4EF">
+    <End Role="User" Type="ACPDatabaseModel.Store.Users" Multiplicity="1" />
+    <End Role="Respons" Type="ACPDatabaseModel.Store.Responses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Respons">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Feedback__Respon__4CA06362">
+    <End Role="Respons" Type="ACPDatabaseModel.Store.Responses" Multiplicity="1" />
+    <End Role="Feedback" Type="ACPDatabaseModel.Store.Feedbacks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Respons">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="ResponseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Feedback__UserId__4D94879B">
+    <End Role="User" Type="ACPDatabaseModel.Store.Users" Multiplicity="1" />
+    <End Role="Feedback" Type="ACPDatabaseModel.Store.Feedbacks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ACPDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -332,58 +332,58 @@
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ACPDatabaseModelStoreContainer" CdmEntityContainer="ACPDatabaseEntities">
-          <EntitySetMapping Name="Challenges">
-            <EntityTypeMapping TypeName="ACPDatabaseModel.Challenge">
-              <MappingFragment StoreEntitySet="Challenges">
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Questions">
-            <EntityTypeMapping TypeName="ACPDatabaseModel.Question">
-              <MappingFragment StoreEntitySet="Questions">
-                <ScalarProperty Name="ChallengeId" ColumnName="ChallengeId" />
-                <ScalarProperty Name="Body" ColumnName="Body" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Responses">
-            <EntityTypeMapping TypeName="ACPDatabaseModel.Respons">
-              <MappingFragment StoreEntitySet="Responses">
-                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
-                <ScalarProperty Name="ResponseData" ColumnName="ResponseData" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="ACPDatabaseModel.User">
-              <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Feedbacks">
-            <EntityTypeMapping TypeName="ACPDatabaseModel.Feedback">
-              <MappingFragment StoreEntitySet="Feedback">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ResponseId" ColumnName="ResponseId" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="Grade" ColumnName="Grade" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
+    <EntitySetMapping Name="Challenges">
+      <EntityTypeMapping TypeName="IsTypeOf(ACPDatabaseModel.Challenge)">
+        <MappingFragment StoreEntitySet="Challenges">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="IsTypeOf(ACPDatabaseModel.Question)">
+        <MappingFragment StoreEntitySet="Questions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="ChallengeId" ColumnName="ChallengeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Responses">
+      <EntityTypeMapping TypeName="IsTypeOf(ACPDatabaseModel.Respons)">
+        <MappingFragment StoreEntitySet="Responses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ResponseData" ColumnName="ResponseData" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(ACPDatabaseModel.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedbacks">
+      <EntityTypeMapping TypeName="IsTypeOf(ACPDatabaseModel.Feedback)">
+        <MappingFragment StoreEntitySet="Feedbacks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ResponseId" ColumnName="ResponseId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->

@@ -205,6 +205,12 @@
     <Compile Include="DatabaseLink\Challenge.cs">
       <DependentUpon>ACPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseLink\Feedback.cs">
+      <DependentUpon>ACPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseLink\Question.cs">
+      <DependentUpon>ACPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseLink\Respons.cs">
       <DependentUpon>ACPModel.tt</DependentUpon>
     </Compile>
