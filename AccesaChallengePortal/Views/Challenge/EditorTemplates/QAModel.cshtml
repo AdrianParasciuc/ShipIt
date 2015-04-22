@@ -14,7 +14,6 @@
 
     <div class="editor-field">
         @Html.TextAreaFor(m => m.Answer, new { style = "width: 99%", rows = 6 })
-        @Html.ValidationMessageFor(m => m.Answer)
     </div>
 
     @if (Model.RequireFileUpload)

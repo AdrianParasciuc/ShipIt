@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/23/2015 21:21:31
--- Generated from EDMX file: D:\Git\shipit\AccesaChallengePortal\DatabaseLink\ACPModel.edmx
+-- Date Created: 01/24/2015 00:59:48
+-- Generated from EDMX file: C:\Users\adrian.parasciuc\Documents\visual studio 2013\Projects\AccesaChallengePortal\AccesaChallengePortal\DatabaseLink\ACPModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -18,10 +18,10 @@ GO
 -- --------------------------------------------------
 
 IF OBJECT_ID(N'[dbo].[FK__Feedback__Respon__4CA06362]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Feedback] DROP CONSTRAINT [FK__Feedback__Respon__4CA06362];
+    ALTER TABLE [dbo].[Feedbacks] DROP CONSTRAINT [FK__Feedback__Respon__4CA06362];
 GO
 IF OBJECT_ID(N'[dbo].[FK__Feedback__UserId__4D94879B]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Feedback] DROP CONSTRAINT [FK__Feedback__UserId__4D94879B];
+    ALTER TABLE [dbo].[Feedbacks] DROP CONSTRAINT [FK__Feedback__UserId__4D94879B];
 GO
 IF OBJECT_ID(N'[dbo].[FK__Questions__Chall__3F466844]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Questions] DROP CONSTRAINT [FK__Questions__Chall__3F466844];
@@ -40,8 +40,8 @@ GO
 IF OBJECT_ID(N'[dbo].[Challenges]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Challenges];
 GO
-IF OBJECT_ID(N'[dbo].[Feedback]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Feedback];
+IF OBJECT_ID(N'[dbo].[Feedbacks]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Feedbacks];
 GO
 IF OBJECT_ID(N'[dbo].[Questions]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Questions];
@@ -68,7 +68,8 @@ GO
 CREATE TABLE [dbo].[Questions] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Body] varchar(max)  NOT NULL,
-    [ChallengeId] int  NULL
+    [ChallengeId] int  NULL,
+    [RequiresFile] bit  NULL
 );
 GO
 
@@ -148,7 +149,6 @@ ADD CONSTRAINT [FK__Questions__Chall__3F466844]
     REFERENCES [dbo].[Challenges]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK__Questions__Chall__3F466844'
 CREATE INDEX [IX_FK__Questions__Chall__3F466844]
@@ -163,7 +163,6 @@ ADD CONSTRAINT [FK__Responses__Quest__4316F928]
     REFERENCES [dbo].[Questions]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK__Responses__Quest__4316F928'
 CREATE INDEX [IX_FK__Responses__Quest__4316F928]
@@ -178,7 +177,6 @@ ADD CONSTRAINT [FK__Responses__UserI__4222D4EF]
     REFERENCES [dbo].[Users]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK__Responses__UserI__4222D4EF'
 CREATE INDEX [IX_FK__Responses__UserI__4222D4EF]
@@ -193,7 +191,6 @@ ADD CONSTRAINT [FK__Feedback__Respon__4CA06362]
     REFERENCES [dbo].[Responses]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK__Feedback__Respon__4CA06362'
 CREATE INDEX [IX_FK__Feedback__Respon__4CA06362]
@@ -208,7 +205,6 @@ ADD CONSTRAINT [FK__Feedback__UserId__4D94879B]
     REFERENCES [dbo].[Users]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK__Feedback__UserId__4D94879B'
 CREATE INDEX [IX_FK__Feedback__UserId__4D94879B]

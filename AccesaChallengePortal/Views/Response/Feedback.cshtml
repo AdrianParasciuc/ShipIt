@@ -1,0 +1,39 @@
+﻿@using AccesaChallengePortal.Models
+@model IList<ResponseFeedbackModel>
+@{
+    ViewBag.Title = "Feedback";
+}
+
+<h2>Feedback</h2>
+
+<br />
+@for (var i = 0; i < Model.Count(); i++)
+{
+  var r = Model[i];
+  if (r.Feedback.Comment != null)
+   {
+     <div style="border: solid 1px; padding: 10px; background-color: powderblue">
+
+       <div class="editor-label">
+         <label>
+           @r.UserDetails
+         </label>
+       </div>
+
+       <div class="editor-label">
+         <label>
+           @r.Question
+         </label>
+       </div>
+
+       <div class="editor-field">
+         <div style="width: 99%; height: 100px; background-color: white; overflow: auto">
+           @r.ResponseData
+         </div>
+       </div>
+
+       @Html.EditorFor(m => m[i].Feedback)
+     </div>
+     <br/>
+   }
+}

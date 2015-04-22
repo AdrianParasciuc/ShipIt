@@ -7,6 +7,6 @@
     </td>
     <td>
         @Html.ActionLink("Edit", "Edit", "Question", new { id = Model.Id }, null)
-        @Html.ActionLink("Delete", "Delete", "Question", new { id = Model.Id }, null)
+        @Html.ActionLink("Delete", "Delete", "Question", new { id = Model.Id, challengeId = Model.ChallengeId }, null)
     </td>
 </tr>

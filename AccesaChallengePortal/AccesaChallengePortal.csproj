@@ -185,6 +185,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ChallengeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Controllers\ResponseController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="DatabaseLink\ACPModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -232,8 +234,12 @@
     <Compile Include="Models\ChallengeAnswerModel.cs" />
     <Compile Include="Models\ChallengeDetailModel.cs" />
     <Compile Include="Models\ChallengeModel.cs" />
+    <Compile Include="Models\ErrorModel.cs" />
+    <Compile Include="Models\FeedbackModel.cs" />
     <Compile Include="Models\QAModel.cs" />
     <Compile Include="Models\QuestionModel.cs" />
+    <Compile Include="Models\ResponseFeedbackModel.cs" />
+    <Compile Include="Models\ResponseModel.cs" />
     <Compile Include="Models\Security\LoginModel.cs" />
     <Compile Include="Models\Security\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -380,7 +386,12 @@
     <Content Include="Views\Challenge\EditorTemplates\QuestionModel.cshtml" />
     <Content Include="Views\Challenge\Answer.cshtml" />
     <Content Include="Views\Challenge\EditorTemplates\QAModel.cshtml" />
-    <Content Include="Views\Challenge\EditorTemplates\Upload.cshtml" />
+    <Content Include="Views\Shared\EditorTemplate\Upload.cshtml" />
+    <Content Include="Views\Response\Index.cshtml" />
+    <Content Include="Views\Question\Create.cshtml" />
+    <Content Include="Views\Question\Edit.cshtml" />
+    <Content Include="Views\Response\EditorTemplates\FeedbackModel.cshtml" />
+    <Content Include="Views\Response\Feedback.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

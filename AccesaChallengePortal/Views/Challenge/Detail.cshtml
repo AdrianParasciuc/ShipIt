@@ -6,10 +6,12 @@
 
 <h2>@Model.Title</h2>
 
-<h3 style="width: 100%; float: left">Questions - @Html.ActionLink("Create", "Create", "Question")</h3>
+@Html.HiddenFor(m => m.Id)
+
+<h3 style="width: 100%; float: left">Questions - @Html.ActionLink("Create", "Create", "Question", new {id = Model.Id},null)</h3>
 <table class="table">
     @Html.EditorFor(m => m.Questions)
 </table>
 <div>
-    @Html.ActionLink("Back to Challenges", "Index")
+    @Html.ActionLink("Back to Challenges", "Start")
 </div>

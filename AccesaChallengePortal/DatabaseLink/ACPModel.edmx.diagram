@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ddb6094a4b38476aba72a7cbce7cd672" Name="Diagram1">
-        <EntityTypeShape EntityType="ACPDatabaseModel.Challenge" Width="1.5" PointX="0.5" PointY="1.375" />
+        <EntityTypeShape EntityType="ACPDatabaseModel.Challenge" Width="1.5" PointX="0.5" PointY="1.125" />
         <EntityTypeShape EntityType="ACPDatabaseModel.Question" Width="1.5" PointX="2.75" PointY="1.25" />
         <EntityTypeShape EntityType="ACPDatabaseModel.Respons" Width="1.5" PointX="5" PointY="1" />
         <EntityTypeShape EntityType="ACPDatabaseModel.User" Width="1.5" PointX="5" PointY="4" />

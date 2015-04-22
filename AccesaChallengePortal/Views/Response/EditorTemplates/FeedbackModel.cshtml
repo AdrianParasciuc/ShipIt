@@ -1,0 +1,36 @@
+﻿@using AccesaChallengePortal.Models
+@model FeedbackModel
+
+@using (Html.BeginForm("Feedback", "Response", null, FormMethod.Post, new {@class = "form-horizontal", role = "form", enctype = "multipart/form-data"}))
+{
+  @Html.ValidationSummary(true)
+  <div>
+    <fieldset>
+      @Html.HiddenFor(m => m.ResponseId, new { @Name = "ResponseId" })
+      <div class="editor-label">
+        <label>
+          @Html.LabelFor(m => m.Comment)
+        </label>
+      </div>
+
+      <div class="editor-field">
+        @Html.TextAreaFor(m => m.Comment, new {style = "width: 97%", rows = 6, @Name = "Comment"})
+      </div>
+
+      <div class="editor-label">
+        <label>
+          @Html.LabelFor(m => m.Grade)
+        </label>
+      </div>
+
+      <div class="editor-field">
+        @Html.TextBoxFor(m => m.Grade, new {@Name = "Grade"})
+      </div>
+
+      <div class="form-group">
+        <br>
+        <input type="submit" class="btn btn-default" value="Save"/>
+      </div>
+    </fieldset>
+    </div>
+  }

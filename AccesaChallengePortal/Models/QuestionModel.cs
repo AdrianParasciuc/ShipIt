@@ -16,9 +16,13 @@ namespace AccesaChallengePortal.Models
         {
             this.Id = q.Id;
             this.Body = q.Body;
+            this.ChallengeId = q.ChallengeId.GetValueOrDefault(0);
+            this.RequiresFile = q.RequiresFile.GetValueOrDefault(false);
         }
 
         public int Id { get; set; }
         public string Body { get; set; }
+        public bool RequiresFile { get; set; }
+        public int ChallengeId { get; set; }
     }
 }

@@ -1,0 +1,46 @@
+﻿@using AccesaChallengePortal.Models
+@model IList<ResponseFeedbackModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Responses</h2>
+
+<br />
+@for (var i = 0; i < Model.Count(); i++)
+{
+  var r = Model[i];
+  <div style="border: solid 1px; padding: 10px; background-color: powderblue">
+
+    <div class="editor-label">
+      <label>
+        @r.UserDetails
+      </label>
+    </div>
+
+    <div class="editor-label">
+      <label>
+        @r.Question
+      </label>
+    </div>
+
+    <div class="editor-field">
+      <div style="width: 99%; height: 100px; background-color: white; overflow: auto">
+        @r.ResponseData
+      </div>
+    </div>
+
+    @if (r.FilePath != null)
+    {
+    <div class="editor-label">
+      <label>
+        @Html.ActionLink(Path.GetFileName(r.FilePath), "Download", "Response", new { path = r.FilePath }, null)
+      </label>
+    </div>
+    }
+
+    @Html.EditorFor(m => m[i].Feedback)
+  </div>
+  <br />
+}
+

@@ -36,6 +36,8 @@ namespace AccesaChallengePortal.Controllers
                 var rand = new Random((int)DateTime.Now.Ticks);
                 var index = rand.Next(1, _repo.Count() + 1);
                 var challenge = _repo.Nth(index);
+                if (challenge == null)
+                    return new HttpNotFoundResult();
                 var model = new ChallengeAnswerModel(challenge);
                 return View("Answer", model);
             }
@@ -114,7 +116,7 @@ namespace AccesaChallengePortal.Controllers
                         if (!folderExists)
                             Directory.CreateDirectory(Server.MapPath("~/Challenge"));
                         var extension = Path.GetExtension(qa.FileData.FileName);
-                        var fileName = string.Format("{0} - {1} {2}({3}).{4}", 
+                        var fileName = string.Format("{0} - {1} {2}({3}){4}", 
                             model.Title, 
                             SessionRepository.CurrentUser.FirstName, 
                             SessionRepository.CurrentUser.LastName, 
@@ -127,8 +129,8 @@ namespace AccesaChallengePortal.Controllers
 
                     var responseRepo = new ACPRepository<Respons>();
                     responseRepo.Add(response);
-                    return RedirectToAction("Start");
                 }
+                return RedirectToAction("Index","Home");
             }
             return View("Answer", model);
         }

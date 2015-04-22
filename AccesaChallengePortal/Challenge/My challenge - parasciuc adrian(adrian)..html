@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="recorder.css">
+		<title>RECORDER</title>
+	</head>
+	
+	<body>
+		<div>
+			<textarea rows = "20" cols = "100" id = "inputTextArea"></textarea>
+		</div>
+		
+		<br>
+		<div>
+			<button type = "button" id = "submitResponse">Submit response</button>
+		</div>
+		<br>
+		
+		<div>
+			<textarea rows = "20" cols = "100" readonly="readonly" id = "outputTextArea"></textarea>
+		</div>
+		
+		<div id = "magicButton" class="border">
+			<div class="play_button"></div>
+		</div> 
+
+	</body>
+</html>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="recorder.js"></script>

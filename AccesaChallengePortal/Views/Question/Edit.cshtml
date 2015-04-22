@@ -1,0 +1,39 @@
+﻿@using AccesaChallengePortal.Models
+@model QuestionModel
+@{
+    ViewBag.Title = "Edit Question";
+}
+
+<h2>Edit question</h2>
+
+@using (Html.BeginForm("Edit", "Question", null, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+  @Html.HiddenFor(m => m.ChallengeId)
+  @Html.ValidationSummary(true)
+  <div>
+    <fieldset>
+      <div class="editor-label">
+        @Html.LabelFor(m => m.Body)
+      </div>
+
+      <div class="editor-field">
+        @Html.TextAreaFor(m => m.Body)
+      </div>
+
+      <div class="editor-label" style="float:left">
+        @Html.LabelFor(m => m.RequiresFile)
+      </div>
+      <div class="editor-field">
+        @Html.CheckBoxFor(m => m.RequiresFile)
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="form-group">
+    <br>
+    <input type="submit" class="btn btn-default" value="Edit" />
+  </div>
+}
+<div>
+  @Html.ActionLink("Back to challange questions", "Detail", "Challenge", null, new { id = Model.ChallengeId })
+</div>
